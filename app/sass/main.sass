@@ -1,45 +1,243 @@
 @import "fonts"
 @import "libs"
 @import "vars"
-
+@import "helpers"
 *::-webkit-input-placeholder
-	color: #666
-	opacity: 1
+  color: #666
+  opacity: 1
 
 *:-moz-placeholder
-	color: #666
-	opacity: 1
+  color: #666
+  opacity: 1
 
 *::-moz-placeholder
-	color: #666
-	opacity: 1
+  color: #666
+  opacity: 1
 
 *:-ms-input-placeholder
-	color: #666
-	opacity: 1
+  color: #666
+  opacity: 1
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid
-	color: #666
+  color: #666
+
 body input:required:valid,
 body textarea:required:valid
-	color: #666
+  color: #666
 
 html, body
-	height: 100%
+  height: 100%
 
 body
-	font-size: 16px
-	min-width: 320px
-	position: relative
-	line-height: 1.75
-	font-family: $default-font
-	overflow-x: hidden
-	opacity: 1
-
+  font-size: 16px
+  min-width: 320px
+  position: relative
+  line-height: 1.75
+  font-family: $default-font
+  overflow-x: hidden
+  opacity: 1
+  background-color: #212F41
 .img-responsive
-	display: block
-	max-width: 100%
-	height: auto
+  display: block
+  max-width: 100%
+  height: auto
 
-@import "media" // Всегда в конце
+.top-nav
+  background-color: #0079C4
+  padding: 10px
+  height: 60px
+  display: flex
+  .brand
+    justify-content: center
+    align-items: center
+    color: white
+    display: flex
+    svg
+      justify-content: center
+  .nav-link
+    justify-content: center
+    align-items: center
+    color: white
+    color: white
+    line-height: 1.25
+
+.main
+  height: calc(100% - 60px)
+  display: flex
+  .side-nav
+    width: 70px
+    height: 100%
+    background-color: #1C293B
+    order: 0
+    &-item
+      color: #A4A9B1
+      padding: 20px 21px
+      display: block
+      border-bottom: 1px solid #333F4F
+      transition: color 0.5s
+      &:hover
+        color: white
+      &:hover .side-nav-item-inform
+        opacity: 1
+        visibility: visible
+      span
+        line-height: 1
+      &-inform
+        position: absolute
+        color: white
+        transition: visibility 0s, opacity 0.3s linear
+        visibility: hidden
+        opacity: 0
+        padding: 8px 16px
+        background-color: #333F4F
+        margin-left: 38px
+        margin-top: -30px
+        font-size: 12px
+        border-radius: 5px
+  .content
+    background: aliceblue
+    order: 1
+    width: calc(100% - 70px)
+    display: flex
+    &-sidebar
+      order: 0
+      height: 100%
+      width: 230px
+      padding: 30px
+      background-color: #223246
+      &-menu
+        margin-top: 30px
+        &:first-child
+          margin-top: 0px
+        &-title
+          color: white
+          font-size: 12px
+          font-weight: 600
+          letter-spacing: 2px
+          text-transform: uppercase
+        ul
+          padding-left: 0px
+          padding-top: 0
+          margin-top: 15px
+          li
+            display: block
+            padding-top: 0
+            a
+              display: flex
+              color: white
+              &:hover
+                text-decoration: none
+              span
+                justify-content: center
+                align-self: center
+                font-size: 14px
+                &:last-child
+                margin-left: 10px
+              .circle
+                width: 10px
+                height: 10px
+                border-radius: 10px
+    &-main
+      order: 1
+      background-color: #212F41
+      overflow-y: hidden
+      width: 100%
+      padding-bottom: 10px
+      padding-left: 10px
+      padding-right: 10px
+
+
+      &-bc
+        width: 100%
+        height: 100%
+        padding-top: 15px
+        white-space: nowrap
+        display: -webkit-box
+        overflow-x: scroll
+        overflow-y: hidden
+        padding-bottom: 30px
+        .col-20
+          position: relative
+          min-height: 1px
+          padding-left: 15px
+          width: 330px
+          height: 100%
+          padding-bottom: 10px
+          &-menu
+            width: 100%
+            &-balance
+              color: white
+              font-size: 14px
+              margin-bottom: 10px
+              text-align: center
+            &-title
+              margin-top: 20px
+              color: white
+              text-align: center
+              width: 100%
+              line-height: 1.30
+              padding-bottom: 10px
+          &-list
+            height: 90%
+            margin-top: 15px
+            padding-bottom: 20px
+            padding-right: 15px
+            overflow-y: scroll
+            &-deal
+              &:first-child
+                margin-top: 0px
+              padding: 15px 10px
+              background-color: #26374C
+              margin-top: 20px
+              border: 1px solid #2C405A
+              display: flex
+              flex-direction: column
+              &-top
+                display: flex
+                justify-content: space-between
+                &-name
+                  color: #0093EE
+                  width: 60%
+                  white-space: normal
+                  font-size: 14px
+                  text-align: left
+                &-date
+                  width: 40%
+                  font-size: 14px
+                  color: white
+                  text-align: right
+              &-bottom
+                margin-top: 15px
+                display: flex
+                justify-content: space-between
+                &-source
+                  display: initial
+                  color: $red
+                  padding: 2px 12px
+                  border: 1px solid $red
+                  border-radius: 5px
+                  font-size: 12px
+                &-price
+                  font-size: 14px
+                  color: white
+                  text-align: right
+
+
+#style-1::-webkit-scrollbar-track
+  border-radius: 50px
+  background-color: none
+#style-1::-webkit-scrollbar
+  height: 7.5px
+  width: 7.5px
+  background-color: none
+#style-1::-webkit-scrollbar-thumb
+  border-radius: 10px
+  background-color: white
+
+
+
+
+
+@import "media"
+// Всегда в конце
